@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: baz | Raised by Savages]]></title>
+  <link href="http://blog.valkyriesavage.com/blog/categories/baz/atom.xml" rel="self"/>
+  <link href="http://blog.valkyriesavage.com/"/>
+  <updated>2012-12-26T06:25:58+11:00</updated>
+  <id>http://blog.valkyriesavage.com/</id>
+  <author>
+    <name><![CDATA[Valkyrie Savage]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[happy christmas blog]]></title>
+    <link href="http://blog.valkyriesavage.com/blog/2012/12/25/happy-christmas-blog/"/>
+    <updated>2012-12-25T14:21:00+11:00</updated>
+    <id>http://blog.valkyriesavage.com/blog/2012/12/25/happy-christmas-blog</id>
+    <content type="html"><![CDATA[<p>I am having a blog.  Yay!  Here is another sentence for great justice and wuv.</p>
+]]></content>
+  </entry>
+  
+</feed>
