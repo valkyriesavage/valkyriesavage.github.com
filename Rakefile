@@ -218,6 +218,9 @@ task :deploy do
 
   Rake::Task[:copydot].invoke(source_dir, public_dir)
   Rake::Task["#{deploy_default}"].execute
+
+  # send it out to webfaction
+  system 'ssh vasavage@web352.webfaction.com "cd webapps/blog; git pull"'
 end
 
 desc "Generate website and deploy"
