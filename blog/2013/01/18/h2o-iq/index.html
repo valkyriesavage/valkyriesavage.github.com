@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>H2O IQ - Raised by Savages</title>
+  <meta name="author" content="Valkyrie Savage">
+
+  
+  <meta name="description" content="As a little series of stuff, I&#8217;m going to write retrospectives on several projects I&#8217;ve done at Berkeley. I&#8217;m going to start with &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Raised by Savages" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Raised by Savages</a></h1>
+  
+    <h2>Explorations, Things!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.valkyriesavage.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">H2O IQ</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-18T05:10:00-08:00" pubdate data-updated="true">Jan 18<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>As a little series of stuff, I&#8217;m going to write retrospectives on several projects I&#8217;ve done at <a href="http://eecs.berkeley.edu">Berkeley</a>.  I&#8217;m going to start with the recent stuff while I still remember it.</p>
+
+<p>In Fall 2012 I took <a href="http://eecs.berkeley.edu/~bjoern">Bj&ouml;rn Hartmann</a>&#8217;s inaugural class on <a href="http://husk.eecs.berkeley.edu/courses/cs294-84-fall12/">Interactive Device Design</a>, co-taught with a member of the Mechanical Engineering faculty, (Paul Wright)[http://www.me.berkeley.edu/faculty/wright/] in the spanking new <a href="http://bit.ly/inventionlab">CITRIS Invention Lab</a>.  The goal of the class was to educate the software-inclined in physical manufacture and the physical-inclined in software.  Students turned out from a few different places, with the makeup showing grads and undergrads from EECS, Mechanical Engineering, Information, and Biomedical Engineering.  We worked through several homework assignments involving implementing games and basic controls in software and hardware, as well as performing basic modeling tasks in SolidWorks.</p>
+
+<p>Ultimately we split into groups for our final course projects.  I had the pleasure of working with <a href="http://eecs.berkeley.edu/~shiry">Shiry Ginosar</a> from EECS and <a href="http://www.markfuge.com">Mark Fuge</a> from ME.  We had a series of discussions about projects that interested us, and the theme we ended up hitting on was physical devices that had some kind of &#8220;smart&#8221; configuration aspect, for example a pair of shoes with dynamically inflatable inserts that can adjust to the user&#8217;s stance, adapt when he changes from walking to running, etc., to reduce pressure on particular areas of the foot.  These types of self-configuring products are becoming more feasible as internet connectivity becomes more ubiquitous and cloud processing cheaper, just think of the <a href="http://www.nest.com">Nest Thermostat</a>.</p>
+
+<p>The project we finally decided to pursue was a water-conserving gardening tool, which we call H2O IQ.  Inspired by water shortages in both California and Shiry&#8217;s home country, Israel, we set out to investigate what it would take to build a device that can be planted in the garden, attached to a drip irrigation system, and forgotten about.</p>
+
+<p>It turns out, not that much.  It also turns out that&#8217;s not what people want.  As a part of the project milestones we were required to do preliminary user interviews.  As it happens, gardeners enjoy the time they spend in the garden, and none of them liked the idea of a computer taking over.  So much for our machine-learning self-adapting dreams.</p>
+
+<p>Instead, we headed in the direction of a notification system.  Our garden device would share soil with a plant and alert its owner when the moisture was too high or too low, prompting action on their part.  It could also, of course, serve as a backup watering device in the case the owner is on vacation or otherwise unable to water.</p>
+
+<p>We ended up with H2O IQ, which looks like this:</p>
+
+<p><img src="http://husk.eecs.berkeley.edu/courses/cs294-84-fall12/images/thumb/9/9a/H2OIQ-pieces.jpg/600px-H2OIQ-pieces.jpg" width=640px /></p>
+
+<p>And works like this:</p>
+
+<iframe width="480" height="360" src="http://www.youtube.com/embed/hKjWDz8GVbY?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>The 3D printed piece has a solar panel on top for power, a servo for controlling water flow through the irrigation system (connected at the nubs), an XBee for communicating with the Pi upstream, four buttons for changing the watering schedule in-garden, and a moisture sensor built from cast plaster.</p>
+
+<p>The Raspberry Pi functions as a webserver, and can communicate with the device via XBee radio.  It serves a website that allows the user to see a graph of the watering history of the plant, as well as perform a one-time automatic watering or set a schedule of future watering.</p>
+
+<p>We didn&#8217;t actually have time to test the product in the course, but we made a final presentation at the end which you can see <a href="https://docs.google.com/presentation/d/1S5aFqThC5lc4pM-Y68lGRSMbOaRiJMXD9njBcWfeR2Q/edit#slide=id.g512c4e8f_1_38">on Google docs</a>.  All of our code, SolidWorks models, and Eagle files for circuitboards (as well as a teensy bit of documentation&#8230;) can be found <a href="https://github.com/valkyriesavage/fluffy-toboggans">on Github</a>.</p>
+
+<p>It was an interesting course project that led into some territory I&#8217;d not explored before, but which I suspect I&#8217;ll need as I delve deeper into the world of hardware.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Valkyrie Savage</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-18T05:10:00-08:00" pubdate data-updated="true">Jan 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/2012-class/'>2012,class</a>, <a class='category' href='/blog/categories/printing-fall/'>printing,fall</a>, <a class='category' href='/blog/categories/project-fabrication-3d/'>project,fabrication,3D</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq/" data-via="" data-counturl="http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/11/fab-at-chi/" title="Previous Post: FAB at CHI">&laquo; FAB at CHI</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/18/h2o-iq/">H2O IQ</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/11/fab-at-chi/">FAB at CHI</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/valkyriesavage">@valkyriesavage</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'valkyriesavage',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Valkyrie Savage -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

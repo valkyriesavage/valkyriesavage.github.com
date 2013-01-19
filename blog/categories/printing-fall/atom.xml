@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: printing,fall | Raised by Savages]]></title>
+  <link href="http://blog.valkyriesavage.com/blog/categories/printing-fall/atom.xml" rel="self"/>
+  <link href="http://blog.valkyriesavage.com/"/>
+  <updated>2013-01-18T19:42:24-08:00</updated>
+  <id>http://blog.valkyriesavage.com/</id>
+  <author>
+    <name><![CDATA[Valkyrie Savage]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[H2O IQ]]></title>
+    <link href="http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq/"/>
+    <updated>2013-01-18T05:10:00-08:00</updated>
+    <id>http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq</id>
+    <content type="html"><![CDATA[<p>As a little series of stuff, I'm going to write retrospectives on several projects I've done at <a href="http://eecs.berkeley.edu">Berkeley</a>.  I'm going to start with the recent stuff while I still remember it.</p>
+
+<p>In Fall 2012 I took <a href="http://eecs.berkeley.edu/~bjoern">Bj&ouml;rn Hartmann</a>'s inaugural class on <a href="http://husk.eecs.berkeley.edu/courses/cs294-84-fall12/">Interactive Device Design</a>, co-taught with a member of the Mechanical Engineering faculty, (Paul Wright)[http://www.me.berkeley.edu/faculty/wright/] in the spanking new <a href="http://bit.ly/inventionlab">CITRIS Invention Lab</a>.  The goal of the class was to educate the software-inclined in physical manufacture and the physical-inclined in software.  Students turned out from a few different places, with the makeup showing grads and undergrads from EECS, Mechanical Engineering, Information, and Biomedical Engineering.  We worked through several homework assignments involving implementing games and basic controls in software and hardware, as well as performing basic modeling tasks in SolidWorks.</p>
+
+<p>Ultimately we split into groups for our final course projects.  I had the pleasure of working with <a href="http://eecs.berkeley.edu/~shiry">Shiry Ginosar</a> from EECS and <a href="http://www.markfuge.com">Mark Fuge</a> from ME.  We had a series of discussions about projects that interested us, and the theme we ended up hitting on was physical devices that had some kind of "smart" configuration aspect, for example a pair of shoes with dynamically inflatable inserts that can adjust to the user's stance, adapt when he changes from walking to running, etc., to reduce pressure on particular areas of the foot.  These types of self-configuring products are becoming more feasible as internet connectivity becomes more ubiquitous and cloud processing cheaper, just think of the <a href="http://www.nest.com">Nest Thermostat</a>.</p>
+
+<p>The project we finally decided to pursue was a water-conserving gardening tool, which we call H2O IQ.  Inspired by water shortages in both California and Shiry's home country, Israel, we set out to investigate what it would take to build a device that can be planted in the garden, attached to a drip irrigation system, and forgotten about.</p>
+
+<p>It turns out, not that much.  It also turns out that's not what people want.  As a part of the project milestones we were required to do preliminary user interviews.  As it happens, gardeners enjoy the time they spend in the garden, and none of them liked the idea of a computer taking over.  So much for our machine-learning self-adapting dreams.</p>
+
+<p>Instead, we headed in the direction of a notification system.  Our garden device would share soil with a plant and alert its owner when the moisture was too high or too low, prompting action on their part.  It could also, of course, serve as a backup watering device in the case the owner is on vacation or otherwise unable to water.</p>
+
+<p>We ended up with H2O IQ, which looks like this:</p>
+
+<p><img src="http://husk.eecs.berkeley.edu/courses/cs294-84-fall12/images/thumb/9/9a/H2OIQ-pieces.jpg/600px-H2OIQ-pieces.jpg" width=640px /></p>
+
+<p>And works like this:</p>
+
+<iframe width="480" height="360" src="http://www.youtube.com/embed/hKjWDz8GVbY?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+<p>The 3D printed piece has a solar panel on top for power, a servo for controlling water flow through the irrigation system (connected at the nubs), an XBee for communicating with the Pi upstream, four buttons for changing the watering schedule in-garden, and a moisture sensor built from cast plaster.</p>
+
+<p>The Raspberry Pi functions as a webserver, and can communicate with the device via XBee radio.  It serves a website that allows the user to see a graph of the watering history of the plant, as well as perform a one-time automatic watering or set a schedule of future watering.</p>
+
+<p>We didn't actually have time to test the product in the course, but we made a final presentation at the end which you can see <a href="https://docs.google.com/presentation/d/1S5aFqThC5lc4pM-Y68lGRSMbOaRiJMXD9njBcWfeR2Q/edit#slide=id.g512c4e8f_1_38">on Google docs</a>.  All of our code, SolidWorks models, and Eagle files for circuitboards (as well as a teensy bit of documentation...) can be found <a href="https://github.com/valkyriesavage/fluffy-toboggans">on Github</a>.</p>
+
+<p>It was an interesting course project that led into some territory I'd not explored before, but which I suspect I'll need as I delve deeper into the world of hardware.</p>
+]]></content>
+  </entry>
+  
+</feed>
