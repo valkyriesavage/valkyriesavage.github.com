@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: fall | Raised by Savages]]></title>
+  <link href="http://blog.valkyriesavage.com/blog/categories/fall/atom.xml" rel="self"/>
+  <link href="http://blog.valkyriesavage.com/"/>
+  <updated>2013-01-26T13:01:53-08:00</updated>
+  <id>http://blog.valkyriesavage.com/</id>
+  <author>
+    <name><![CDATA[Valkyrie Savage]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[fraiche]]></title>
+    <link href="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/"/>
+    <updated>2013-01-26T11:39:00-08:00</updated>
+    <id>http://blog.valkyriesavage.com/blog/2013/01/26/fraiche</id>
+    <content type="html"><![CDATA[<p>Continuing my series of "things I've done in class before", I wanted to write about the project I worked on with <a href="http://jkk.name">Jonathan Kummerfeld</a> and <a href="http://www.cs.berkeley.edu/~peggychi/">Peggy Chi</a>.  This project was an extension of the aforementioned <a href="/blog/2013/01/18/h2o-iq/">H2O IQ</a>: we were exploring what could happen if we move from one device in a single user's garden to many devices scattered through a community garden or small farm, all of which were being served by a single <a href="http://raspberrypi.org">Raspberry Pi</a>.</p>
+
+<p>We had a few different tasks to balance:</p>
+
+<ol>
+<li>Serving client requests for data via the web interface</li>
+<li>Accepting client instructions via the web interface and forwarding them to the in-garden watering devices</li>
+<li>Receiving updated readings from in-garden sensors</li>
+<li>Performing machine learning on the sensor readings and watering instructions</li>
+</ol>
+
+
+<p>We set up three scenarios to test in:</p>
+
+<ol>
+<li>Single user : 1 client, 3 plants</li>
+<li>Small farm : 1 client, 50 plants</li>
+<li>Community garden : 50 clients, 150 plants</li>
+</ol>
+
+
+<p>and we had six different scheduling algorithms to try:</p>
+
+<ol>
+<li>naive - update the watering model as soon as a client makes a request for data from that plant</li>
+<li>periodic offline - every 5 minutes, update all watering models</li>
+<li>sensor-triggered - when new watering data are sent from the in-garden devices, update those watering models</li>
+<li>hybrid - a mixture of the periodic offline scheduler and the sensor-triggered scheduler</li>
+<li>low load scheduler - this scheduler watches client traffic, and when there are fewer than 15 client requests in the preceding 5 minutes, all watering models are updated</li>
+<li>predictive scheduler - a second machine learning algorithm watches the pattern of client traffic: just before a peak is predicted to occur, all watering models are updated</li>
+</ol>
+
+
+<p>We wanted low client latency and "fresh" models.  We defined model freshness to be <code>time_at_serving - time_at_last_update</code>.</p>
+
+<p>Our basic experimental setup included one Raspberry Pi and one remote Mac.  We had the Mac running <a href="http://phantomjs.org">Phantom JS</a> to simulate client requests and also to submit sensor data via a web endpoint.  Our webserver and schedulers were all written in Python using <a href="http://tornadoweb.org">Tornado</a>.</p>
+
+<p>The results were promising!</p>
+
+<p><img src="/images/fraiche-freshness.png" alt="Freshness per scheduler in each scenario" /></p>
+
+<p><img src="/images/fraiche-latency.png" alt="Latency per scheduler in each scenario" /></p>
+
+<p>There are more details <a href="/assets/fraiche.pdf">in the paper we wrote</a>, but suffice to say for now that we were happy with the Raspberry Pi's performance in general and that it would certainly be feasible and reasonable to use it as a machine-learning webserver in a Fast Response And Intelligently Controlled Harvest Environment.  As usual, the code for the project, as well as some documentation, can be found <a href="https://github.com/valkyriesavage/fraiche">on github</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

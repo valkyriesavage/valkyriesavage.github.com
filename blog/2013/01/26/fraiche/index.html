@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>fraiche - Raised by Savages</title>
+  <meta name="author" content="Valkyrie Savage">
+
+  
+  <meta name="description" content="Continuing my series of &#8220;things I&#8217;ve done in class before&#8221;, I wanted to write about the project I worked on with Jonathan &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Raised by Savages" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Raised by Savages</a></h1>
+  
+    <h2>Explorations, Things!</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.valkyriesavage.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">fraiche</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-26T11:39:00-08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Continuing my series of &#8220;things I&#8217;ve done in class before&#8221;, I wanted to write about the project I worked on with <a href="http://jkk.name">Jonathan Kummerfeld</a> and <a href="http://www.cs.berkeley.edu/~peggychi/">Peggy Chi</a>.  This project was an extension of the aforementioned <a href="/blog/2013/01/18/h2o-iq/">H2O IQ</a>: we were exploring what could happen if we move from one device in a single user&#8217;s garden to many devices scattered through a community garden or small farm, all of which were being served by a single <a href="http://raspberrypi.org">Raspberry Pi</a>.</p>
+
+<p>We had a few different tasks to balance:</p>
+
+<ol>
+<li>Serving client requests for data via the web interface</li>
+<li>Accepting client instructions via the web interface and forwarding them to the in-garden watering devices</li>
+<li>Receiving updated readings from in-garden sensors</li>
+<li>Performing machine learning on the sensor readings and watering instructions</li>
+</ol>
+
+
+<p>We set up three scenarios to test in:</p>
+
+<ol>
+<li>Single user : 1 client, 3 plants</li>
+<li>Small farm : 1 client, 50 plants</li>
+<li>Community garden : 50 clients, 150 plants</li>
+</ol>
+
+
+<p>and we had six different scheduling algorithms to try:</p>
+
+<ol>
+<li>naive - update the watering model as soon as a client makes a request for data from that plant</li>
+<li>periodic offline - every 5 minutes, update all watering models</li>
+<li>sensor-triggered - when new watering data are sent from the in-garden devices, update those watering models</li>
+<li>hybrid - a mixture of the periodic offline scheduler and the sensor-triggered scheduler</li>
+<li>low load scheduler - this scheduler watches client traffic, and when there are fewer than 15 client requests in the preceding 5 minutes, all watering models are updated</li>
+<li>predictive scheduler - a second machine learning algorithm watches the pattern of client traffic: just before a peak is predicted to occur, all watering models are updated</li>
+</ol>
+
+
+<p>We wanted low client latency and &#8220;fresh&#8221; models.  We defined model freshness to be <code>time_at_serving - time_at_last_update</code>.</p>
+
+<p>Our basic experimental setup included one Raspberry Pi and one remote Mac.  We had the Mac running <a href="http://phantomjs.org">Phantom JS</a> to simulate client requests and also to submit sensor data via a web endpoint.  Our webserver and schedulers were all written in Python using <a href="http://tornadoweb.org">Tornado</a>.</p>
+
+<p>The results were promising!</p>
+
+<p><img src="/images/fraiche-freshness.png" alt="Freshness per scheduler in each scenario" /></p>
+
+<p><img src="/images/fraiche-latency.png" alt="Latency per scheduler in each scenario" /></p>
+
+<p>There are more details <a href="/assets/fraiche.pdf">in the paper we wrote</a>, but suffice to say for now that we were happy with the Raspberry Pi&#8217;s performance in general and that it would certainly be feasible and reasonable to use it as a machine-learning webserver in a Fast Response And Intelligently Controlled Harvest Environment.  As usual, the code for the project, as well as some documentation, can be found <a href="https://github.com/valkyriesavage/fraiche">on github</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Valkyrie Savage</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-26T11:39:00-08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/2012-systems-class/'>2012,systems,class</a>, <a class='category' href='/blog/categories/fall/'>fall</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/" data-via="" data-counturl="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/18/h2o-iq/" title="Previous Post: H2O IQ">&laquo; H2O IQ</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/26/fraiche/">fraiche</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/18/h2o-iq/">H2O IQ</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/11/fab-at-chi/">FAB at CHI</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/valkyriesavage">@valkyriesavage</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'valkyriesavage',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Valkyrie Savage -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
