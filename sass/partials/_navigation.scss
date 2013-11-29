@@ -4,7 +4,7 @@ body > nav {
   @include background($nav-bg-front, $nav-bg-back);
   border: {
     top: 1px solid $nav-border-top;
-    bottom: 1px solid $nav-border-bottom; }
+    bottom: 3px solid $nav-border-bottom; }
   padding-top: .35em;
   padding-bottom: .35em;
   form {
@@ -37,7 +37,7 @@ body > nav {
   }
   ul { display: none; }
   @media only screen and (min-width: 550px) {
-    font-size: .9em;
+    font-size: .8em;
     ul {
       @include horizontal-list(0);
       float: left;
@@ -79,6 +79,7 @@ body > nav {
         width: 93%;
         font-size: .95em;
         line-height: 1.2em;
+        padding: 4px 4px 4px 8px;
       }
     }
     ul[data-subscription$=email] + form {
