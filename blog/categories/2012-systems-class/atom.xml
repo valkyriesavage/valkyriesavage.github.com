@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 2012,systems,class | Raised by Savages]]></title>
   <link href="http://blog.valkyriesavage.com/blog/categories/2012-systems-class/atom.xml" rel="self"/>
   <link href="http://blog.valkyriesavage.com/"/>
-  <updated>2013-01-26T13:01:53-08:00</updated>
+  <updated>2013-11-30T12:56:25-06:00</updated>
   <id>http://blog.valkyriesavage.com/</id>
   <author>
     <name><![CDATA[Valkyrie Savage]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[fraiche]]></title>
     <link href="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/"/>
-    <updated>2013-01-26T11:39:00-08:00</updated>
+    <updated>2013-01-26T11:39:00-06:00</updated>
     <id>http://blog.valkyriesavage.com/blog/2013/01/26/fraiche</id>
     <content type="html"><![CDATA[<p>Continuing my series of "things I've done in class before", I wanted to write about the project I worked on with <a href="http://jkk.name">Jonathan Kummerfeld</a> and <a href="http://www.cs.berkeley.edu/~peggychi/">Peggy Chi</a>.  This project was an extension of the aforementioned <a href="/blog/2013/01/18/h2o-iq/">H2O IQ</a>: we were exploring what could happen if we move from one device in a single user's garden to many devices scattered through a community garden or small farm, all of which were being served by a single <a href="http://raspberrypi.org">Raspberry Pi</a>.</p>
 

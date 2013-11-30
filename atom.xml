@@ -4,7 +4,7 @@
   <title><![CDATA[Raised by Savages]]></title>
   <link href="http://blog.valkyriesavage.com/atom.xml" rel="self"/>
   <link href="http://blog.valkyriesavage.com/"/>
-  <updated>2013-01-26T13:01:53-08:00</updated>
+  <updated>2013-11-30T12:56:25-06:00</updated>
   <id>http://blog.valkyriesavage.com/</id>
   <author>
     <name><![CDATA[Valkyrie Savage]]></name>
@@ -14,9 +14,49 @@
 
   
   <entry>
+    <title type="html"><![CDATA[expedition!]]></title>
+    <link href="http://blog.valkyriesavage.com/blog/2013/05/30/expedition/"/>
+    <updated>2013-05-30T23:51:00-05:00</updated>
+    <id>http://blog.valkyriesavage.com/blog/2013/05/30/expedition</id>
+    <content type="html"><![CDATA[<p><a href="http://savageevan.com">Evan</a> and I recently received official word that we are now the proud co-founders of an LLC: <a href="http://savageinter.net">Savage Internet</a>.  We have yet to nail down an official mission, but we&#8217;re hoping to look at the space of educational technologies.  In particular, many online education platforms (e.g. <a href="http://khanacademy.org">Khan Academy</a>) focus heavily on STEM fields, since these have very simple processes and easy-to-grade right or wrong answers.  But what does a MOOC (Massive Online Open Course) look like where the goal is to teach art, history, or culture?</p>
+
+<p>We&#8217;re starting to explore that question with thr prototype we are launching in invite-only alpha.  Our prototype is called <a href="https://expedition.savageinter.net">expedition!</a>, and the basic idea is to have a platform for people to ask and answer questions about the world.</p>
+
+<p>A simple scenario is this: Evan and I have a friend named Anami who is a writer.  The current novel she&#8217;s working on features airships, and she&#8217;s been doing piles of research on the various mechanisms of flight, both past and present.  She had heard of the oldest air and space museum in the world, which is located in the northeast suburbs of Paris.  She didn&#8217;t really have an opportunity to go there herself, but she knew that Evan and I were heading that direction for a conference.  She asked us to photo document the museum for her, and bring back any ridiculous stories we felt were noteworthy.  So we did.</p>
+
+<p>We&#8217;ve implemented some basic game mechanics (badge systems, XP, etc.) for expedition!, but we&#8217;re not totally sure what the right mechanics are.  We&#8217;re also kicking around ideas for a real-time component of the system (where, for example, we could chat or video chat live with Anami from the museum and probe deeper into things that she was really interested in).  If you have any thoughts on the alpha, or if you want an invitation to play around with it, do let us know.  :)</p>
+
+<p>Evan and I will be implementing features and testing stuff out on our trip this summer to Southeast Asia.  You can follow us on expedition! or on <a href="http://ramblelust.savageinter.net">our new blog: Ramblelust</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[pyramids of people]]></title>
+    <link href="http://blog.valkyriesavage.com/blog/2013/05/30/i-see-scaled-people/"/>
+    <updated>2013-05-30T20:14:00-05:00</updated>
+    <id>http://blog.valkyriesavage.com/blog/2013/05/30/i-see-scaled-people</id>
+    <content type="html"><![CDATA[<p>During Jitendra Malik&#8217;s seasonal offering of CS280:Computer Vision, <a href="http://eecs.berkeley.edu/~shiry">Shiry Ginosar</a> and I teamed up on an HCI-inspired computer vision project.  Our idea was simple: we wanted to try using person density and action context for the purposes of scene recognition.</p>
+
+<p>First of all, it&#8217;s important to know what scene recognition even means.  In essence it&#8217;s a task for a computer to take a photograph of a &#8220;scene&#8221; (think office, forest trail, boat, church, etc.) and give back an answer of what it thinks the photograph is of.  Typically this is done after training the computer by giving it many many labeled photographs of scenes, so that it can learn how to tell them apart.</p>
+
+<p>Think about a few scenes in your head for a moment.  How many people did you see last time you were at the beach, and what were they doing?  Now compare that to a scene in an airport, how many people were there, and what were they doing?  How about the last family dinner you had?</p>
+
+<p>We thought it seemed like a reasonable amount of signal, in particular when taken with the traditional methods of scene recognition (one of the most popular is location and number of lines of particular orientation).  To make it stronger, we elected to try out using spatial pyramids: basically this tells you not only how many people are in the scene, but where in the scene they are.  This would show a difference between, e.g. the airport where many people are roughly evenly distributed and the beach where people may be clumped together in their groups of friends.</p>
+
+<p>For our semantic scene recognition task, we needed a dataset and some kind of algorithm.  For the dataset, there are fortunately multiple large and open labeled scene databases for use by academics (or anyone who&#8217;s interested).  We settled on XXXXXXXX? because we wished to compare our results to a XXXXXXXXX paper that uses it.  Algorithm-wise, we had the good fortune to build off of XXXXXXXX poselets, which was developed in-house at Berkeley by the CV group.</p>
+
+<p>The confusion matrix of our results is shown below:</p>
+
+<p>XXXXXXXX</p>
+
+<p>Obviously, we could have done better.  We believe the problem was that we never got the thing running on the UCB CV cluster, so we had to settle for training and running it on tiny pieces of the ideal training set.  Another issue was that not all the photos in the database contained people, so the training data we did use wasn&#8217;t necessarily dense in information.  We&#8217;ve been talking about finishing this project up for months, but have never made the time to do it&#8230; so it&#8217;s still exciting, low-hanging fruit waiting for someone to pick it up!</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[fraiche]]></title>
     <link href="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/"/>
-    <updated>2013-01-26T11:39:00-08:00</updated>
+    <updated>2013-01-26T11:39:00-06:00</updated>
     <id>http://blog.valkyriesavage.com/blog/2013/01/26/fraiche</id>
     <content type="html"><![CDATA[<p>Continuing my series of &#8220;things I&#8217;ve done in class before&#8221;, I wanted to write about the project I worked on with <a href="http://jkk.name">Jonathan Kummerfeld</a> and <a href="http://www.cs.berkeley.edu/~peggychi/">Peggy Chi</a>.  This project was an extension of the aforementioned <a href="http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq/">H2O IQ</a>: we were exploring what could happen if we move from one device in a single user&#8217;s garden to many devices scattered through a community garden or small farm, all of which were being served by a single <a href="http://raspberrypi.org">Raspberry Pi</a>.</p>
 
@@ -68,7 +108,7 @@
   <entry>
     <title type="html"><![CDATA[H2O IQ]]></title>
     <link href="http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq/"/>
-    <updated>2013-01-18T05:10:00-08:00</updated>
+    <updated>2013-01-18T05:10:00-06:00</updated>
     <id>http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq</id>
     <content type="html"><![CDATA[<p>As a little series of stuff, I&#8217;m going to write retrospectives on several projects I&#8217;ve done at <a href="http://eecs.berkeley.edu">Berkeley</a>.  I&#8217;m going to start with the recent stuff while I still remember it.</p>
 
@@ -104,7 +144,7 @@
   <entry>
     <title type="html"><![CDATA[FAB at CHI]]></title>
     <link href="http://blog.valkyriesavage.com/blog/2013/01/11/fab-at-chi/"/>
-    <updated>2013-01-11T21:52:00-08:00</updated>
+    <updated>2013-01-11T21:52:00-06:00</updated>
     <id>http://blog.valkyriesavage.com/blog/2013/01/11/fab-at-chi</id>
     <content type="html"><![CDATA[
 

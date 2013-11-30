@@ -2,22 +2,30 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://blog.valkyriesavage.com/blog/2013/01/11/fab-at-chi/</loc>
-        <lastmod>2013-01-18T16:07:16-08:00</lastmod>
+        <lastmod>2013-01-18T18:07:16-06:00</lastmod>
     </url>
     <url>
         <loc>http://blog.valkyriesavage.com/blog/2013/01/18/h2o-iq/</loc>
-        <lastmod>2013-01-18T19:42:24-08:00</lastmod>
+        <lastmod>2013-01-18T21:42:24-06:00</lastmod>
     </url>
     <url>
         <loc>http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/</loc>
-        <lastmod>2013-01-26T13:01:25-08:00</lastmod>
+        <lastmod>2013-01-26T15:01:25-06:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.valkyriesavage.com/blog/2013/05/30/i-see-scaled-people/</loc>
+        <lastmod>2013-05-30T22:34:39-05:00</lastmod>
+    </url>
+    <url>
+        <loc>http://blog.valkyriesavage.com/blog/2013/05/30/expedition/</loc>
+        <lastmod>2013-05-31T02:09:07-05:00</lastmod>
     </url>
     <url>
         <loc>http://blog.valkyriesavage.com/blog/archives/</loc>
-        <lastmod>2013-01-26T13:01:25-08:00</lastmod>
+        <lastmod>2013-05-31T02:09:07-05:00</lastmod>
     </url>
     <url>
         <loc>http://blog.valkyriesavage.com/</loc>
-        <lastmod>2013-01-26T13:01:25-08:00</lastmod>
+        <lastmod>2013-05-31T02:09:07-05:00</lastmod>
     </url>
 </urlset>

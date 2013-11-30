@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: education | Raised by Savages]]></title>
+  <link href="http://blog.valkyriesavage.com/blog/categories/education/atom.xml" rel="self"/>
+  <link href="http://blog.valkyriesavage.com/"/>
+  <updated>2013-11-30T12:56:25-06:00</updated>
+  <id>http://blog.valkyriesavage.com/</id>
+  <author>
+    <name><![CDATA[Valkyrie Savage]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[expedition!]]></title>
+    <link href="http://blog.valkyriesavage.com/blog/2013/05/30/expedition/"/>
+    <updated>2013-05-30T23:51:00-05:00</updated>
+    <id>http://blog.valkyriesavage.com/blog/2013/05/30/expedition</id>
+    <content type="html"><![CDATA[<p><a href="http://savageevan.com">Evan</a> and I recently received official word that we are now the proud co-founders of an LLC: <a href="http://savageinter.net">Savage Internet</a>.  We have yet to nail down an official mission, but we're hoping to look at the space of educational technologies.  In particular, many online education platforms (e.g. <a href="http://khanacademy.org">Khan Academy</a>) focus heavily on STEM fields, since these have very simple processes and easy-to-grade right or wrong answers.  But what does a MOOC (Massive Online Open Course) look like where the goal is to teach art, history, or culture?</p>
+
+<p>We're starting to explore that question with thr prototype we are launching in invite-only alpha.  Our prototype is called <a href="https://expedition.savageinter.net">expedition!</a>, and the basic idea is to have a platform for people to ask and answer questions about the world.</p>
+
+<p>A simple scenario is this: Evan and I have a friend named Anami who is a writer.  The current novel she's working on features airships, and she's been doing piles of research on the various mechanisms of flight, both past and present.  She had heard of the oldest air and space museum in the world, which is located in the northeast suburbs of Paris.  She didn't really have an opportunity to go there herself, but she knew that Evan and I were heading that direction for a conference.  She asked us to photo document the museum for her, and bring back any ridiculous stories we felt were noteworthy.  So we did.</p>
+
+<p>We've implemented some basic game mechanics (badge systems, XP, etc.) for expedition!, but we're not totally sure what the right mechanics are.  We're also kicking around ideas for a real-time component of the system (where, for example, we could chat or video chat live with Anami from the museum and probe deeper into things that she was really interested in).  If you have any thoughts on the alpha, or if you want an invitation to play around with it, do let us know.  :)</p>
+
+<p>Evan and I will be implementing features and testing stuff out on our trip this summer to Southeast Asia.  You can follow us on expedition! or on <a href="http://ramblelust.savageinter.net">our new blog: Ramblelust</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>

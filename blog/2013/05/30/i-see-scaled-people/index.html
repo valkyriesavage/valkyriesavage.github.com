@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>fraiche - Raised by Savages</title>
+  <title>pyramids of people - Raised by Savages</title>
   <meta name="author" content="Valkyrie Savage">
 
   
-  <meta name="description" content="Continuing my series of &#8220;things I&#8217;ve done in class before&#8221;, I wanted to write about the project I worked on with Jonathan &hellip;">
+  <meta name="description" content="During Jitendra Malik&#8217;s seasonal offering of CS280:Computer Vision, Shiry Ginosar and I teamed up on an HCI-inspired computer vision project. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/">
+  <link rel="canonical" href="http://blog.valkyriesavage.com/blog/2013/05/30/i-see-scaled-people/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -73,7 +73,7 @@
   
   <header>
     
-      <h1 class="entry-title">fraiche</h1>
+      <h1 class="entry-title">pyramids of people</h1>
     
     
       <p class="meta">
@@ -89,57 +89,28 @@
   
 
 
-<time datetime="2013-01-26T11:39:00-06:00" pubdate data-updated="true">Jan 26<span>th</span>, 2013</time>
+<time datetime="2013-05-30T20:14:00-05:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Continuing my series of &#8220;things I&#8217;ve done in class before&#8221;, I wanted to write about the project I worked on with <a href="http://jkk.name">Jonathan Kummerfeld</a> and <a href="http://www.cs.berkeley.edu/~peggychi/">Peggy Chi</a>.  This project was an extension of the aforementioned <a href="/blog/2013/01/18/h2o-iq/">H2O IQ</a>: we were exploring what could happen if we move from one device in a single user&#8217;s garden to many devices scattered through a community garden or small farm, all of which were being served by a single <a href="http://raspberrypi.org">Raspberry Pi</a>.</p>
+<div class="entry-content"><p>During Jitendra Malik&#8217;s seasonal offering of CS280:Computer Vision, <a href="http://eecs.berkeley.edu/~shiry">Shiry Ginosar</a> and I teamed up on an HCI-inspired computer vision project.  Our idea was simple: we wanted to try using person density and action context for the purposes of scene recognition.</p>
 
-<p>We had a few different tasks to balance:</p>
+<p>First of all, it&#8217;s important to know what scene recognition even means.  In essence it&#8217;s a task for a computer to take a photograph of a &#8220;scene&#8221; (think office, forest trail, boat, church, etc.) and give back an answer of what it thinks the photograph is of.  Typically this is done after training the computer by giving it many many labeled photographs of scenes, so that it can learn how to tell them apart.</p>
 
-<ol>
-<li>Serving client requests for data via the web interface</li>
-<li>Accepting client instructions via the web interface and forwarding them to the in-garden watering devices</li>
-<li>Receiving updated readings from in-garden sensors</li>
-<li>Performing machine learning on the sensor readings and watering instructions</li>
-</ol>
+<p>Think about a few scenes in your head for a moment.  How many people did you see last time you were at the beach, and what were they doing?  Now compare that to a scene in an airport, how many people were there, and what were they doing?  How about the last family dinner you had?</p>
 
+<p>We thought it seemed like a reasonable amount of signal, in particular when taken with the traditional methods of scene recognition (one of the most popular is location and number of lines of particular orientation).  To make it stronger, we elected to try out using spatial pyramids: basically this tells you not only how many people are in the scene, but where in the scene they are.  This would show a difference between, e.g. the airport where many people are roughly evenly distributed and the beach where people may be clumped together in their groups of friends.</p>
 
-<p>We set up three scenarios to test in:</p>
+<p>For our semantic scene recognition task, we needed a dataset and some kind of algorithm.  For the dataset, there are fortunately multiple large and open labeled scene databases for use by academics (or anyone who&#8217;s interested).  We settled on XXXXXXXX? because we wished to compare our results to a XXXXXXXXX paper that uses it.  Algorithm-wise, we had the good fortune to build off of XXXXXXXX poselets, which was developed in-house at Berkeley by the CV group.</p>
 
-<ol>
-<li>Single user : 1 client, 3 plants</li>
-<li>Small farm : 1 client, 50 plants</li>
-<li>Community garden : 50 clients, 150 plants</li>
-</ol>
+<p>The confusion matrix of our results is shown below:</p>
 
+<p>XXXXXXXX</p>
 
-<p>and we had six different scheduling algorithms to try:</p>
-
-<ol>
-<li>naive - update the watering model as soon as a client makes a request for data from that plant</li>
-<li>periodic offline - every 5 minutes, update all watering models</li>
-<li>sensor-triggered - when new watering data are sent from the in-garden devices, update those watering models</li>
-<li>hybrid - a mixture of the periodic offline scheduler and the sensor-triggered scheduler</li>
-<li>low load scheduler - this scheduler watches client traffic, and when there are fewer than 15 client requests in the preceding 5 minutes, all watering models are updated</li>
-<li>predictive scheduler - a second machine learning algorithm watches the pattern of client traffic: just before a peak is predicted to occur, all watering models are updated</li>
-</ol>
-
-
-<p>We wanted low client latency and &#8220;fresh&#8221; models.  We defined model freshness to be <code>time_at_serving - time_at_last_update</code>.</p>
-
-<p>Our basic experimental setup included one Raspberry Pi and one remote Mac.  We had the Mac running <a href="http://phantomjs.org">Phantom JS</a> to simulate client requests and also to submit sensor data via a web endpoint.  Our webserver and schedulers were all written in Python using <a href="http://tornadoweb.org">Tornado</a>.</p>
-
-<p>The results were promising!</p>
-
-<p><img src="/images/fraiche-freshness.png" alt="Freshness per scheduler in each scenario" /></p>
-
-<p><img src="/images/fraiche-latency.png" alt="Latency per scheduler in each scenario" /></p>
-
-<p>There are more details <a href="/assets/fraiche.pdf">in the paper we wrote</a>, but suffice to say for now that we were happy with the Raspberry Pi&#8217;s performance in general and that it would certainly be feasible and reasonable to use it as a machine-learning webserver in a Fast Response And Intelligently Controlled Harvest Environment.  As usual, the code for the project, as well as some documentation, can be found <a href="https://github.com/valkyriesavage/fraiche">on github</a>.</p>
+<p>Obviously, we could have done better.  We believe the problem was that we never got the thing running on the UCB CV cluster, so we had to settle for training and running it on tiny pieces of the ideal training set.  Another issue was that not all the photos in the database contained people, so the training data we did use wasn&#8217;t necessarily dense in information.  We&#8217;ve been talking about finishing this project up for months, but have never made the time to do it&#8230; so it&#8217;s still exciting, low-hanging fruit waiting for someone to pick it up!</p>
 </div>
 
 
@@ -162,12 +133,12 @@
   
 
 
-<time datetime="2013-01-26T11:39:00-06:00" pubdate data-updated="true">Jan 26<span>th</span>, 2013</time>
+<time datetime="2013-05-30T20:14:00-05:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/2012-systems-class/'>2012,systems,class</a>, <a class='category' href='/blog/categories/fall/'>fall</a>
+    <a class='category' href='/blog/categories/computer-vision/'>computer vision</a>, <a class='category' href='/blog/categories/hci/'>hci</a>, <a class='category' href='/blog/categories/semantic-scene-recognition/'>semantic scene recognition</a>
   
 </span>
 
@@ -176,7 +147,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/" data-via="" data-counturl="http://blog.valkyriesavage.com/blog/2013/01/26/fraiche/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.valkyriesavage.com/blog/2013/05/30/i-see-scaled-people/" data-via="" data-counturl="http://blog.valkyriesavage.com/blog/2013/05/30/i-see-scaled-people/" >Tweet</a>
   
   
   
@@ -185,10 +156,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/18/h2o-iq/" title="Previous Post: H2O IQ">&laquo; H2O IQ</a>
+        <a class="basic-alignment left" href="/blog/2013/01/26/fraiche/" title="Previous Post: fraiche">&laquo; fraiche</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/05/30/i-see-scaled-people/" title="Next Post: pyramids of people">pyramids of people &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/05/30/expedition/" title="Next Post: expedition!">expedition! &raquo;</a>
       
     </p>
   </footer>
