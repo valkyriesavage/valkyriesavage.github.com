@@ -23,68 +23,67 @@ categories: [research, vinyl cutter, 3D printer, circuitboard mill]
       }
     </style>
 <div id="mysuperspecialuniqueid">
-Welcome to my blog!  The following is a draft of a post under submission to the <a href="http://fabworkshop.media.mit.edu">FAB at CHI</a> workshop happening this year at <a href="http://chi2013.acm.org/">CHI 2013</a> in Paris.  My advisor, <a href="http://eecs.berkeley.edu/~bjoern">Bj&ouml;rn Hartmann, is one of the directors of the workshop.
+Welcome to my blog!  The following is a draft of a post under submission to the <a href="http://fabworkshop.media.mit.edu">FAB at CHI</a> workshop happening this year at <a href="http://chi2013.acm.org/">CHI 2013</a> in Paris.  My advisor, <a href="http://eecs.berkeley.edu/~bjoern">Bj&ouml;rn Hartmann</a>, is one of the directors of the workshop.
 <br/>
 <br/>
-The plummeting cost of reasonable-quality 3D printers like <a href="http://typeamachines.com">Type A Machines</a> and <a href="http://makerbot.com">Makerbots</a>, combined with the presence of services like <a href="http://shapeways.com">Shapeways</a> that do custom object production on demand, promise an oncoming army of little plastic things.
-<br/>
-<br/>
-<img width="100%" src="http://farm8.staticflickr.com/7074/7386340788_b424c8c46f_c.jpg" />
-<br/>
-<small>"Army of Duckies" by Digital-Nuisance on Flickr</small>
-<br/>
-<br/>
-Current online communities such as <a href="http://thingiverse.com">Thingiverse</a> serve as repositories of these things, which range from <a href="http://www.thingiverse.com/ArtInstituteChicago">3D scans of artwork at the Art Institute of Chicago</a> to <a href="http://www.thingiverse.com/thing:30008">complex part-printed, part-routed, part-purchased copies of video game controllers</a>.  The composition of the site is heavily tilted towards the former: beautiful, captured rather than designed, and immobile jewelry or art pieces.  The next largest segment is copies of existing functional devices (like the joystick) for replacement or repair purposes.  However, only a small contingent of designers on the site (like <a href="http://www.thingiverse.com/emmett">emmett</a>) create novel functional devices for sharing on the site.  Among these objects, very few have both electronic and mechanical functions such as would be necessary for the creation of tangible input devices.
-<br/>
-<br/>
-<table>
-<tr>
-<td width="33%"><img width="100%" src="http://thingiverse-production.s3.amazonaws.com/renders/70/17/30/e0/0d/tom_lion_display_large.jpg"></td>
-<td width="33%"><img width="100%" src="http://thingiverse-production.s3.amazonaws.com/renders/bb/0c/e7/c2/aa/DSC03674_display_large.jpg"></td>
-<td width="33%"><img width="100%" src="http://thingiverse-production.s3.amazonaws.com/renders/ac/90/3f/f4/b2/rover1_display_large.jpg"></td>
-</tr>
-<tr>
-<td width="33%"><small>"Iconic Lion at the Steps of the Art Institute of Chicago" by ArtInstituteChicago on Thingiverse</small></td>
-<td width="33%"><small>"Arcade Stick" by srepmub on Thingiverse</small></td>
-<td width="33%"><small>"Moon Rover" by emmett on Thingiverse</small></td>
-</tr>
-</table>
-<br/>
-Aside from 3D printers, other classes of digital fabrication hardware like <a href="http://www.rolanddga.com/products/cutters/stika/">vinyl cutters</a> and <a href="http://www.lpkfusa.com/protomat/e33.htm">circuit board milling machines</a> have reached consumer-friendly price points.  <a href="http://bid.berkeley.edu">Our group at Berkeley</a> is examining how to combine the abilities of these types of hardware to assist designers in prototyping tangible input devices, with an eye towards the ultimate goal of making prototyping this hardware more like prototyping software: <i>rapidly iterable, immediately functional, and easily learned</i>.  We want to use our work to educate and excite high school students in <a href="http://en.wikipedia.org/wiki/STEM_fields">STEM fields</a>.
-<br/>
-<br/>
-Tangible user interfaces (TUIs) are, according to <a href="tangible.media.mit.edu">Hiroshi Ishii</a>, about "giving physical form to digital information".  Although touch screen-based interactions are increasingly popular as smartphone sales continue, there are still strong arguments for maintaining the tangibility of interfaces: these arguments range from speed and accuracy (a gamer using a gaming console) to visibility (ability of others to learn and interact with one's data in a shared space) to safety and accessibility (including eyes-free interfaces for driving).  These themes and others are covered in many places, including <a href="http://hci.stanford.edu/publications/2006/HowBodiesMatter-DIS2006.pdf">How Bodies Matter</a>, a paper by one of our group.
-<br/>
-<br/>
-Our first project, <a href="http://bid.berkeley.edu/papers/uist/midas_fabricating_custom_capac/">Midas</a>, explored the use of vinyl cutters and circuitboard mills for the creation of custom capacitive touch sensors that can be designed and programmed without knowledge of electronics or programming skill.
-<br/>
-<br/>
-<iframe width="640" height="360" src="http://www.youtube.com/embed/lS60AH2_Pbs?rel=0" frameborder="0" allowfullscreen></iframe>
-<small>The Midas video submitted to UIST 2012, describing the user flow and basic implementation of the system.</small>
-<br/>
-<br/>
-<div name="imgandcaption" style="position:relative; left: 0; top: 0; float: left; width: 33%">
-<table>
-<tr><td><img width="100%" src="http://www.eecs.berkeley.edu/~valkyrie/midas-sensors.jpg"/></td></tr>
-<tr><td><small>A Midas-powered prototype enabling back-of-phone interactions for checking email.</small></td></tr>
-</table>
-</div>
-Midas consists of a design tool for layout of the sensors, a vinyl cutter for fabrication of them, and a small microcontroller for communication with them.  The design tool takes the drag-and-drop paradigm currently prevalent in GUI development and expands it to hardware development: the designer does not trouble herself with routing or connective pieces, as these are instead taken care of behind the scenes by the tool.  The designer is free to concern herself with the <i>what</i> rather than the <i>how</i>.  Once a designer has completed her sensor layout, instructions are generated which lead her through a multi-step fabrication and assembly process.  In this process, she cuts her custom sensors from copper foil on a vinyl cutter, adheres them to her object, and connects them to color-coded wires.  She then uses the interface to describe on-screen interactions through a record and replay framework, or to program more complex interactions through WebSockets.
-<br/>
-<br/>Midas has been a success.  In user tests, we found the tool suitable for first-time users, and we found interest in it at venues like <a href="http://tltl.stanford.edu/fablearn2012">FabLearn</a>, a conference for fabrication technologies in education; and <a href="http://sketching-in-hardware.com/">Sketching in Hardware</a>, a weekend workshop for hackers, artists, and academics to think together about prototyping.  However, it has a fundamental limitation: it only assists designers with <i>touch-based</i> interactions.  In the larger TUI world, there are many more classes of input to be considered.
-<br/>
-<br/>
-<div name="otherimgandcaption" style="position:relative; left: 0; top: 0; float: right; width:33%;">
-<table>
-<tr><td><img width="100%" src="images/sauron-pieces.png"/></td></tr>
-<tr><td><small>A Sauron-powered prototype of a controller with a button, a direction pad, a scroll wheel, a dial, and a slider.</small></td></tr>
-</table>
-</div>
-Continuing our explorations, we have begun a project called Sauron.  Our goal for this project is to enable designers to turn models fabricated on commodity 3D printers into interactive prototypes with a minimum of required assembly or instrumentation.  Given <a href="http://www.disneyresearch.com/project/printed-optics/">Disney's work</a> towards functional and fully assembled tangible input devices which can be fabricated on a 3D printer without supervision, pausing the print periodically to insert electronics or fiddling with wiring after the fact don't seem to create reasonable interaction flows.  Sauron consists of an infrared camera with an array of IR LEDs.  This physical piece is inserted into already-printed devices.  The camera observes the backside of the end-user-facing input components (e.g. buttons, sliders, or direction pads), and via computer vision determines when a mechanism was actuated and how (e.g. it can give the position the slider was moved to along its track).
-<br/>
-<br/>
-This allows designers to create functional objects as fast as they can print them: the only assembly required to make the parts work with Sauron is to insert the camera.  Our next steps in this project include developing a CAD tool plugin that will aid designers in building prototypes where the input components are visible to the single camera; the plugin will automatically place and move mirrors and internal geometry to make all components visible within the cone of vision.  This again frees the designer to think about the <i>what</i> rather than the <i>how</i> as prototypes come out of a 3D printer essentially <i>already functional</i>.
-<br/>
-<br/>
-The world is interactive, but most things created using digital fabrication aren't yet.  Through our work at Berkeley, and hopefully our interactions with the FAB at CHI workshop, we are hoping to explore the potential of digital fabrication tools for functional prototype design.
-</div>
+    <div id="title" style="font-size:200%; text-align: center;">Prototyping Tangible Input Devices <br/> with Digital Fabrication</div>
+    <br/>
+    <div id="authors" style="font-size:125%; text-align: center;">Valkyrie Savage <br /> Bj&ouml;rn Hartmann <br/> </div>
+    <br/>
+    <br/>
+    <div id="body">
+      Tangible user interfaces (TUIs) are, according to <a href="tangible.media.mit.edu">Hiroshi Ishii</a>, about "mak[ing] digital information directly manipulatable with our hands and perceptible through our peripheral senses through its physical embodiment".  Although touch screen-based interactions are increasingly popular as smartphones continue to sell, there are still strong arguments for maintaining the tangibility of interfaces: these arguments range from speed and accuracy (a gamer using a gaming console) to visibility (ability of others to learn and interact with one's data in a shared space) to safety and accessibility (including eyes-free interfaces for driving).  We have previously investigated the benefits of tangibility in <a href="http://hci.stanford.edu/publications/2006/HowBodiesMatter-DIS2006.pdf">How Bodies Matter</a>.
+      <br/>
+      <br/>
+      3D printing holds obvious promise for the physical design and fabrication of tangible interfaces.  However, becasue such interfaces are interactive, they require an integration of physical form and electronics.  Few of the early users of 3D printing can currently create such objects.  For example, we surveyed the the online community <a href="http://thingiverse.com">Thingiverse</a>; presently it and sites similar to it show a definite tilt towards objects like <a href="http://www.thingiverse.com/ArtInstituteChicago">3D scans of artwork at the Art Institute of Chicago</a>.  These things are immobile, captured rather than designed, and intended to be used as jewelry or art pieces.  A smaller set of things on the site have mechanical movement of some kind, <a href="http://www.thingiverse.com/emmett">like toy cars and moon rovers</a>.  A third, yet smaller, class are things that are both mechanically and electronically functional, like <a href="http://www.thingiverse.com/thing:30008">Atari joystick replacements</a>.  The users who dabble in this last sector are typically experts in PCB design and design for 3D printing.
+      <br/>
+      <br/>
+      <table>
+        <tr>
+          <td width="33%"><img width="100%" src="http://thingiverse-production.s3.amazonaws.com/renders/70/17/30/e0/0d/tom_lion_display_large.jpg"></td>
+          <td width="33%"><img width="100%" src="http://thingiverse-production.s3.amazonaws.com/renders/ac/90/3f/f4/b2/rover1_display_large.jpg"></td>
+          <td width="33%"><img width="100%" src="http://thingiverse-production.s3.amazonaws.com/renders/bb/0c/e7/c2/aa/DSC03674_display_large.jpg"></td>
+        </tr>
+        <tr>
+          <td width="33%"><small>"Iconic Lion at the Steps of the Art Institute of Chicago" by ArtInstituteChicago on Thingiverse</small></td>
+          <td width="33%"><small>"Moon Rover" by emmett on Thingiverse</small></td>
+          <td width="33%"><small>"Arcade Stick" by srepmub on Thingiverse</small></td>
+        </tr>
+      </table>
+      <br/>
+      Many of the objects on Thingiverse focus on 3D printable designs.  Aside from 3D printers, other classes of digital fabrication hardware, like <a href="http://www.rolanddga.com/products/cutters/stika/">vinyl cutters</a>, have also reached consumer-friendly price points.  <a href="http://bid.berkeley.edu">Our group at Berkeley</a> is examining how to combine the capabilities of these types of hardware to assist designers in prototyping tangible input devices, with an eye towards the ultimate goal of making hardware prototypes more like software prototypes: <i>rapidly iterable and immediately functional</i> through tools that are <i>easily learned</i>.  We want to use our work to educate and excite high school students in <a href="http://en.wikipedia.org/wiki/STEM_fields">STEM fields</a>.
+      <br/>
+      <br/>
+      Our first project, <a href="http://bid.berkeley.edu/papers/uist/midas_fabricating_custom_capac/">Midas</a>, explored the creation of custom capacitive touch sensors that can be designed and made functional without knowledge of electronics or programming skill.  These types of sensors can be used, for example, to enable back-of-phone interactions that don't occlude output while a user gives input; or to experiment with the placement of interactive areas on a new computer peripheral.  We even used it to build a touch-sensitive postcard that plays songs and a papercraft pinball machine that can actually control a PC-based pinball game.
+      <br/>
+      <br/>
+      The Midas video submitted to UIST 2012, describing the user flow and basic implementation of the system, can be found <a href="http://www.youtube.com/watch?v=lS60AH2_Pbs">on YouTube</a>.
+      <br/>
+      <br/>
+      <div name="imgandcaption" style="position:relative; left: 0; top: 0; float: left; width: 33%">
+        <table>
+          <tr><td><img width="100%" src="http://www.eecs.berkeley.edu/~valkyrie/midas-sensors.jpg"/></td></tr>
+          <tr><td><small>A Midas-powered prototype enabling back-of-phone interactions for checking email.</small></td></tr>
+        </table>
+      </div>
+      Midas consists of a design tool for layout of the sensors, a vinyl cutter for fabrication of them, and a small microcontroller for communication with them.  The design tool takes the drag-and-drop paradigm currently prevalent in GUI development and expands it to hardware development: the designer does not trouble herself with the "plumbing" that turns a high-level design into a lower-level representation for display or fabrication.  In a GUI editor this means the tool is responsible for determining pixel locations and managing components at runtime, while in Midas we create vector graphics of the designer's sensors and appropriate connective traces.  In both cases, the designer is free to concern herself with the <i>what</i> rather than the <i>how</i>.  Once a designer has completed her sensor layout with Midas, instructions are generated which lead her through a multi-step fabrication and assembly process.  In this process, she cuts her custom sensors from copper foil on a vinyl cutter, adheres them to her object, and connects them to color-coded wires.  She then uses the interface to describe on-screen interactions through a record and replay framework, or to program more complex interactions through WebSockets.
+      <br/>
+      <br/>In user tests, we found the tool suitable for first-time users, and we found interest in it at venues like <a href="http://tltl.stanford.edu/fablearn2012">FabLearn</a>, a conference for fabrication technologies in education; and <a href="http://sketching-in-hardware.com/">Sketching in Hardware</a>, a weekend workshop for hackers, artists, and academics.  However, it has a fundamental limitation: it only assists designers with <i>touch-based</i> interactions.  In the larger TUI world, there are many more classes of input to be considered.
+      <br/>
+      <br/>
+      <div name="otherimgandcaption" style="position:relative; left: 0; top: 0; float: right; width:33%;">
+        <table>
+          <tr><td><img width="100%" src="https://lh4.googleusercontent.com/-EU9Z_TizVgk/UPnRmy2z0QI/AAAAAAAABs0/yvi8NuIf_lo/s640/sauron-pieces.png"/></td></tr>
+          <tr><td><small>A Sauron-powered prototype of a controller with a button, a direction pad, a scroll wheel, a dial, and a slider.</small></td></tr>
+        </table>
+      </div>
+      Continuing our explorations, we have begun a project to enable designers to turn models fabricated on commodity 3D printers into interactive prototypes with a minimum of required assembly or instrumentation.  We share a goal with <a href="http://www.disneyresearch.com/project/printed-optics/">Disney's work</a>: functional tangible input devices which can be fabricated on a 3D printer without intensive post-print assembly.  Our approach involves inserting a single camera into a completed input device print.  Our current prototype, Sauron, consists of an infrared camera with an array of IR LEDs, which can be placed inside already-printed devices.  The camera observes the backside of the end-user-facing input components (e.g. buttons, sliders, or direction pads), and via computer vision determines when a mechanism was actuated and how (e.g. it can give the position the slider was moved to along its track).
+      <br/>
+      <br/>
+      This allows designers to create functional objects as fast as they can print them: the only assembly required to make the parts work with Sauron is to insert the camera.  Our next steps in this project include developing a CAD tool plugin that will aid designers in building prototypes where all input components are visible to the single camera; the plugin will automatically place and move mirrors and internal geometry to make all components visible within the cone of vision.  This again frees the designer to think about the <i>what</i> rather than the <i>how</i> as prototypes come out of a 3D printer essentially <i>already functional</i>.
+      <br/>
+      <br/>
+      The world is interactive, but most things created using digital fabrication aren't yet.  Through our work at Berkeley, and hopefully our interactions with the FAB at CHI workshop, we are hoping to explore the potential of digital fabrication tools for functional prototype design.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+---
+layout: post
+title: "fraiche"
+date: 2013-01-26 11:39
+comments: true
+categories: fall 2012,systems,class
+---
+
+Continuing my series of "things I've done in class before", I wanted to write about the project I worked on with [Jonathan Kummerfeld](http://jkk.name) and [Peggy Chi](http://www.cs.berkeley.edu/~peggychi/).  This project was an extension of the aforementioned [H2O IQ](/blog/2013/01/18/h2o-iq/): we were exploring what could happen if we move from one device in a single user's garden to many devices scattered through a community garden or small farm, all of which were being served by a single [Raspberry Pi](http://raspberrypi.org).
+
+We had a few different tasks to balance:
+
+1. Serving client requests for data via the web interface
+2. Accepting client instructions via the web interface and forwarding them to the in-garden watering devices
+3. Receiving updated readings from in-garden sensors
+4. Performing machine learning on the sensor readings and watering instructions
+
+We set up three scenarios to test in:
+
+1. Single user : 1 client, 3 plants
+2. Small farm : 1 client, 50 plants
+3. Community garden : 50 clients, 150 plants
+
+and we had six different scheduling algorithms to try:
+
+1. naive - update the watering model as soon as a client makes a request for data from that plant
+2. periodic offline - every 5 minutes, update all watering models
+3. sensor-triggered - when new watering data are sent from the in-garden devices, update those watering models
+4. hybrid - a mixture of the periodic offline scheduler and the sensor-triggered scheduler
+5. low load scheduler - this scheduler watches client traffic, and when there are fewer than 15 client requests in the preceding 5 minutes, all watering models are updated
+6. predictive scheduler - a second machine learning algorithm watches the pattern of client traffic: just before a peak is predicted to occur, all watering models are updated
+
+We wanted low client latency and "fresh" models.  We defined model freshness to be `time_at_serving - time_at_last_update`.
+
+Our basic experimental setup included one Raspberry Pi and one remote Mac.  We had the Mac running [Phantom JS](http://phantomjs.org) to simulate client requests and also to submit sensor data via a web endpoint.  Our webserver and schedulers were all written in Python using [Tornado](http://tornadoweb.org).
+
+The results were promising!
+
+![Freshness per scheduler in each scenario](/images/fraiche-freshness.png)
+
+![Latency per scheduler in each scenario](/images/fraiche-latency.png)
+
+There are more details [in the paper we wrote](/assets/fraiche.pdf), but suffice to say for now that we were happy with the Raspberry Pi's performance in general and that it would certainly be feasible and reasonable to use it as a machine-learning webserver in a Fast Response And Intelligently Controlled Harvest Environment.  As usual, the code for the project, as well as some documentation, can be found [on github](https://github.com/valkyriesavage/fraiche).
